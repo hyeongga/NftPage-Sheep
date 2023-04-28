@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import NftCard from "./NftCard";
 import axios from "axios";
+import { MdArrowBackIosNew } from "react-icons/md";
+import { MdArrowForwardIos } from "react-icons/md";
 
 function Nfts({ page, mintedNft }) {
   const [selectedPage, setSelectedPage] = useState(1);
@@ -49,6 +51,16 @@ function Nfts({ page, mintedNft }) {
     return pageArray;
   };
 
+  // const onClickpageSub = () => {
+  //   if (selectedPage > 1) {
+  //     selectedPage = selectedPage - 1;
+  //     setSelectedPage(selectedPage);
+  //   }
+  // };
+  // const onClickpageAdd = () => {
+  //   if (selectedPage < page) return setSelectedPage(selectedPage + 1);
+  // };
+
   useEffect(() => {
     getNfts(1);
   }, [mintedNft]);
@@ -75,8 +87,16 @@ function Nfts({ page, mintedNft }) {
             </button>
           )}
         </div>
-
         <div className="flex justify-center my-8">{pageComp()}</div>
+        {/* <div className="flex items-center justify-center ">
+          <div className="text-gray-400 hover:text-gray-700 mr-8">
+            <MdArrowBackIosNew onClick={onClickpageSub()} />
+          </div>
+
+          <div className="text-gray-400 hover:text-gray-700 ml-8">
+            <MdArrowForwardIos />
+          </div>
+        </div> */}
       </div>
     </div>
   );

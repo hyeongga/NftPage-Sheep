@@ -18,7 +18,8 @@ import { CgProfile } from "react-icons/cg";
 const Profile = ({ account }) => {
   const web3 = new Web3(window.ethereum);
   const contract = new web3.eth.Contract(CONTRACT_ABI, CONTRACT_ADDRESS);
-  const [myNft, setMyNft] = useState(0);
+  const [myNft, setMyNft] = useState("지갑을 눌러 로그인해 주세요");
+
   // const [myBalance, setMyBalance] = useState();
 
   // const getBalance = async () => {
@@ -62,7 +63,7 @@ const Profile = ({ account }) => {
               </MenuItem> 
             </MenuGroup>*/}
             {/* <MenuGroup title="NFT"> */}
-            <MenuItem>{myNft}</MenuItem>
+            <MenuItem> {myNft}</MenuItem>
             {/* </MenuGroup> */}
           </MenuGroup>
         </MenuList>

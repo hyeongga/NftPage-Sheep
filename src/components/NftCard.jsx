@@ -15,7 +15,7 @@ const NftCard = ({ tokenId, metadata, mintedNft }) => {
   // };
 
   return (
-    <div className="bg-gray-100 pt-2 px-3 pb-4 mx-3 rounded-2xl relative hover:shadow-md hover:shadow-lime-700">
+    <div className="bg-gray-100 pt-2 px-3 pb-4 mx-3 rounded-2xl relative hover:shadow-md hover:shadow-lime-700 ">
       <img
         className="rounded-2xl h-52 w-52"
         src={metadata.image}
