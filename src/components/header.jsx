@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { GiHighGrass } from "react-icons/gi";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { BsWallet2 } from "react-icons/bs";
-import { CgProfile } from "react-icons/cg";
 import { Link } from "react-router-dom";
 import Profile from "./Profile";
 
@@ -29,7 +28,7 @@ function Header({ account, setAccount }) {
         </div>
       </Link>
 
-      <div className="flex   w-64 h-10 justify-evenly items-center">
+      <div className="flex w-64 h-10 justify-evenly items-center">
         <Link to="/shopping">
           <AiOutlineShoppingCart size={30} />
         </Link>
@@ -45,8 +44,7 @@ function Header({ account, setAccount }) {
             </button>
           )}
         </div>
-        {/* <CgProfile size={30} /> */}
-        <Profile account={account} />
+        <Profile account={account} onClickBtn={onClickBtn} />
       </div>
     </div>
   );

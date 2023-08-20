@@ -12,6 +12,7 @@ function Main({ account }) {
   const [mintedNft, setMintedNft] = useState(0);
   const [myNft, setMyNft] = useState(0);
   const [page, setPage] = useState(0);
+  const [holders, setHolders] = useState(0);
 
   const getTotlaNft = async () => {
     try {
