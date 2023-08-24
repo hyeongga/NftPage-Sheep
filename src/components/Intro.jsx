@@ -1,7 +1,7 @@
 // const imgSrc = `https://olbm.mypinata.cloud/ipfs/Qma27YVmbBknqbeEGUPhW1Mjyj4dVYDwF8SnZMaBi3umka/${ranNum}.png`;
 const imgSrc = `${process.env.PUBLIC_URL}/images/sheep.jpg`;
 
-function Intro({ mintedNft, holders }) {
+function Intro({ mintedNft }) {
   return (
     <div className="bg-grass h-56 pt-[100px] ">
       <div>
@@ -34,10 +34,6 @@ function Intro({ mintedNft, holders }) {
           <div className="flex flex-col justify-center items-center ml-4">
             <div className="font-bold text-lg">{mintedNft}</div>
             <div className="text-gray-700">총 아이템</div>
-          </div>
-          <div className="flex flex-col justify-center items-center ml-4">
-            <div className="font-bold text-lg">{holders}</div>
-            <div className="text-gray-700">Holders</div>
           </div>
         </div>
       </div>

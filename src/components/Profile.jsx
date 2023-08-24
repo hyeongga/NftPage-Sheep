@@ -25,7 +25,7 @@ const Profile = ({ account, onClickBtn }) => {
   const web3 = new Web3(window.ethereum);
   const contract = new web3.eth.Contract(CONTRACT_ABI, CONTRACT_ADDRESS);
   const [myNft, setMyNft] = useState(0);
-  const [myBalance, setMyBalance] = useState(0);
+  const [myBalance, setMyBalance] = useState("");
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const getBalance = async () => {
@@ -33,7 +33,7 @@ const Profile = ({ account, onClickBtn }) => {
       if (!account || !contract) return;
 
       const balance = await web3.eth.getBalance(account);
-      console.log("잔액", balance);
+      console.log("잔액", typeof balance);
       setMyBalance(web3.utils.fromWei(balance));
     } catch (error) {
       console.error(error);
