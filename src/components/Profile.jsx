@@ -24,21 +24,21 @@ import { CgProfile } from "react-icons/cg";
 const Profile = ({ account, onClickBtn }) => {
   const web3 = new Web3(window.ethereum);
   const contract = new web3.eth.Contract(CONTRACT_ABI, CONTRACT_ADDRESS);
-  const [myNft, setMyNft] = useState(account);
-  const [myBalance, setMyBalance] = useState();
+  const [myNft, setMyNft] = useState(0);
+  const [myBalance, setMyBalance] = useState(0);
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  // const getBalance = async () => {
-  //   try {
-  //     if (!account || !contract) return;
+  const getBalance = async () => {
+    try {
+      if (!account || !contract) return;
 
-  //     const balance = await contract.methods.balanceOf(account).call();
-  //     console.log("잔액", balance);
-  //     setMyBalance(web3.utils.fromWei(balance));
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
+      const balance = await web3.eth.getBalance(account);
+      console.log("잔액", balance);
+      setMyBalance(web3.utils.fromWei(balance));
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const getMyNft = async () => {
     try {
@@ -52,7 +52,7 @@ const Profile = ({ account, onClickBtn }) => {
 
   useEffect(() => {
     getMyNft();
-    // getBalance();
+    getBalance();
   }, [account]);
 
   return (
@@ -64,11 +64,11 @@ const Profile = ({ account, onClickBtn }) => {
           </MenuButton>
           <MenuList>
             <MenuGroup>
-              <MenuGroup title="MATIC">
-                <MenuItem>jkj</MenuItem>
-              </MenuGroup>
-              <MenuGroup title="NFT">
+              <MenuGroup title="My NFT">
                 <MenuItem> {myNft}</MenuItem>
+              </MenuGroup>
+              <MenuGroup title="MATIC">
+                <MenuItem>{myBalance.substring(0, 6)}</MenuItem>
               </MenuGroup>
             </MenuGroup>
           </MenuList>

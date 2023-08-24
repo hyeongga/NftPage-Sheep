@@ -15,6 +15,7 @@ function Header({ account, setAccount }) {
       setAccount(accounts[0]);
     } catch (error) {
       console.error(error);
+      alert("메타마스크 연결에 실패하였습니다.");
     }
   };
 
